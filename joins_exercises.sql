@@ -5,7 +5,7 @@ SELECT departments.dept_name ,
 FROM employees
          JOIN dept_manager on employees.emp_no = dept_manager.emp_no
          JOIN departments on dept_manager.dept_no = departments.dept_no
-WHERE dept_manager.to_date < NOW() # or use = 9999-01-01
+WHERE dept_manager.to_date > NOW() # or use = 9999-01-01
 ORDER BY dept_name;
 
 #REFACTORED
@@ -15,7 +15,7 @@ SELECT d.dept_name AS 'Department Name',
 FROM employees AS e
          JOIN dept_manager AS dm on e.emp_no = dm.emp_no
          JOIN departments AS d on dm.dept_no = d.dept_no
-WHERE dm.to_date < NOW()
+WHERE dm.to_date > NOW()
 ORDER BY dept_name;
 
 #2
@@ -56,12 +56,13 @@ group by title;
 
 
 SELECT departments.dept_name ,
-       CONCAT(employees.first_name,'', employees.last_name), salaries.salary
+       CONCAT(employees.first_name,'', employees.last_name),
+       salaries.salary
 FROM employees
          JOIN dept_manager on employees.emp_no = dept_manager.emp_no
          JOIN departments on dept_manager.dept_no = departments.dept_no
          JOIN salaries on employees.emp_no = salaries.emp_no
-WHERE dept_manager.to_date > NOW() # or use = 9999-01-01
+WHERE dept_manager.to_date > NOW()
     AND salaries.to_date > NOW()
 ORDER BY dept_name;
 
