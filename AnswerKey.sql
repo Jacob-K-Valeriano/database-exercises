@@ -26,6 +26,6 @@ WHERE qt.topic_id IN
       );
 
 # charts and diagram links
-https://dev.mysql.com/doc/mysql-for-excel/en/mysql-for-excel-export.html
+#https://dev.mysql.com/doc/mysql-for-excel/en/mysql-for-excel-export.html
 
-https://dbdiagram.io/home
+#https://dbdiagram.io/home
